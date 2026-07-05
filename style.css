@@ -2,6 +2,7 @@
 
   /* COLOR */
   --bg-primary: rgba(0, 0, 0, 0.904);
+  --bg-snake: rgba(129, 230, 121, 0.692);
   --text-primary: rgb(243, 243, 243);
   --border-primary: rgb(159, 159, 224);
   --border-secondary: rgb(230, 230, 230);
@@ -68,4 +69,8 @@ section {
     width: 30px; */
     border: 1px solid var(--box-primary);
   }
+}
+
+.fill {
+  background-color: var(--bg-snake);
 }
