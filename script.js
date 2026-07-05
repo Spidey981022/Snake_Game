@@ -3,7 +3,7 @@ const board = document.querySelector("#board");
 const blocks = [];
 const snake = [{ x: 1, y: 3 }];
 
-let direction = "down";
+let direction = "";
 
 const nCol = Math.floor(board.clientHeight / 50);
 const nRows = Math.floor(board.clientWidth / 50);
@@ -35,6 +35,8 @@ setInterval(() => {
     head = { x: snake[0].x - 1, y: snake[0].y };
   } else if (direction === "down") {
     head = { x: snake[0].x + 1, y: snake[0].y };
+  } else {
+    head = { x: snake[0].x, y: snake[0].y };
   }
 
   snake.unshift(head);
@@ -43,4 +45,18 @@ setInterval(() => {
   });
   snake.pop();
   render();
-}, 1000);
+}, 100);
+
+document.addEventListener("keydown", (event) => {
+  if (event.keyCode === 37) {
+    direction = "left";
+  } else if (event.keyCode === 38) {
+    direction = "up";
+  } else if (event.keyCode === 39) {
+    direction = "right";
+  } else if (event.keyCode === 40) {
+    direction = "down";
+  } else if (event.keyCode === 32) {
+    direction = "";
+  }
+});
